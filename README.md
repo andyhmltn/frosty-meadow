@@ -14,9 +14,9 @@ It's simple really!
 	
 	FrostyMeadow.generate #=> sparkling frost
 
-You can convert it to an underscored format easily:
+You can specify a custom separator easily:
 
-	FrostyMeadow.generate(:underscored => true)
+	FrostyMeadow.generate(:separator => '-') #=> frosty-meadow
 
 Custom adjectives/nouns may also be used:
 
