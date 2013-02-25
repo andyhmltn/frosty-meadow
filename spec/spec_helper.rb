@@ -1,4 +1,4 @@
-require File.expand_path('../../lib/fragrant_wind.rb', __FILE__) 
+require File.expand_path('../../lib/frosty_meadow.rb', __FILE__) 
 require 'yaml'
 
 RSpec.configure do |config|

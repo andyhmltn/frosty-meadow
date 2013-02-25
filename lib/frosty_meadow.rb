@@ -1,4 +1,4 @@
-class FragrantWind
+class FrostyMeadow
 	attr_accessor :adjectives, :nouns, :result
 
 	def self.generate params = {}

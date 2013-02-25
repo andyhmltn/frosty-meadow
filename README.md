@@ -1,6 +1,6 @@
-fragrant-wind
+frosty-meadow
 =============
-[![Build Status](https://travis-ci.org/andyhmltn/fragrant-wind.png)](https://travis-ci.org/andyhmltn/fragrant-wind)
+[![Build Status](https://travis-ci.org/andyhmltn/frosty-meadow.png)](https://travis-ci.org/andyhmltn/frosty-meadow)
 
 What is this?
 ----------------
@@ -10,17 +10,17 @@ How do I use it?
 ----------------
 It's simple really!
 
-	require 'fragrant_wind'
+	require 'frosty_meadow'
 	
-	FragrantWind.generate #=> sparkling frost
+	FrostyMeadow.generate #=> sparkling frost
 
 You can convert it to an underscored format easily:
 
-	FragrantWind.generate(:underscored => true)
+	FrostyMeadow.generate(:underscored => true)
 
 Custom adjectives/nouns may also be used:
 
-	FragrantWind.generate(:adjectives => ["beautiful", "amazing", "awesome"], :nouns => ["world", "earth", "globe"]) #=> amazing world
+	FrostyMeadow.generate(:adjectives => ["beautiful", "amazing", "awesome"], :nouns => ["world", "earth", "globe"]) #=> amazing world
 
 Pull requests
 ---------------
