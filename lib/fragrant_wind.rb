@@ -7,7 +7,7 @@ class FragrantWind
 	end
 
 	def generate params = {}
-		@result = "#{@adjectives.sample} #{@nouns.sample}"
+		@result = "#{@adjectives[rand(@adjectives.length)]} #{@nouns[rand(@nouns.length)]}"
 
 		if params[:to_underscored].nil? || params[:to_underscored] == false
 			return @result
