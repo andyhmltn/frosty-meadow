@@ -1,6 +1,4 @@
 class FrostyMeadow
-	attr_accessor :adjectives, :nouns, :result
-
 	def self.generate params = {}
 		adjectives = (params[:adjectives].nil?)? self.get_default_words[:adjectives] : params[:adjectives]
 		nouns = (params[:nouns].nil?)? self.get_default_words[:nouns] : params[:nouns]
