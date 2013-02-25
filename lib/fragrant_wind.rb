@@ -1,0 +1,2 @@
+class FragrantWind
+end
