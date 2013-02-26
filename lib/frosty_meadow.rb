@@ -7,11 +7,11 @@ class FrostyMeadow
 
 		result = "#{adjectives[rand(adjectives.length)]} #{nouns[rand(nouns.length)]}"
 
-		return (params[:underscored].nil? || params[:underscored] == false)? result : self.to_underscored(result)
+		return (params[:separator] && self.seperate(result, params[:separator])) || result
 	end
 
-	def self.to_underscored result
-		result.gsub(/ +/, '_')
+	def self.seperate result, seperator
+		result.gsub(/ +/, seperator)
 	end
 
 	def self.get_default_words 

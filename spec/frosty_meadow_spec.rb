@@ -8,7 +8,11 @@ describe FrostyMeadow do
 		end
 
 		it "converts the generated string to an underscored version" do
-			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"], :underscored => true).should eql 'hello_world'
+			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"], :separator => '_').should eql 'hello_world'
+		end
+
+		it "converts the generated string to a dashed version" do
+			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"], :separator => '-').should eql 'hello-world'
 		end
 
 		it "generates a two word string" do
