@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'frosty_meadow'
-  s.version     = '0.0.5'
+  s.version     = '1.0.0'
   s.summary     = "Random server name generator!"
   s.description = "This gem will generate a random name for your server, much in the way Heroku does."
   s.authors     = ["Andy Hamilton"]
