@@ -32,4 +32,8 @@ class FrostyMeadow
 
 		return words
 	end
+
+	def self.hex_string length=5
+		((0..length).map{rand(256).chr}*"").unpack("H*")[0][0,length]
+	end
 end
