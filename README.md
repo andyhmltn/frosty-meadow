@@ -22,6 +22,10 @@ Custom adjectives/nouns may also be used:
 
 	FrostyMeadow.generate(:adjectives => ["beautiful", "amazing", "awesome"], :nouns => ["world", "earth", "globe"]) #=> amazing world
 
+If you are using this to generate server names similar to how heroku does it, then the `generate_hex_name` method will provide you with one formatted similarly :
+
+	FrostyMeadow.generate_hex_name #=> billowing-snowflake-41aa3
+
 Pull requests
 ---------------
 Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`
