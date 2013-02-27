@@ -33,6 +33,12 @@ class FrostyMeadow
 		return words
 	end
 
+	def self.generate_hex_name
+		generated_string = self.generate(:separator => '-')
+
+		return "#{generated_string}-#{self.hex_string}"
+	end
+
 	def self.hex_string length=5
 		((0..length).map{rand(256).chr}*"").unpack("H*")[0][0,length]
 	end
