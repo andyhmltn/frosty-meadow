@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe FrostyMeadow do
+
+	before :each do
+		@hexadecimal_regex = /^[0-9A-F]+$/i
+	end
+
 	describe "#generate" do
 		it "generates a random string" do
 			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"]).should eql 'hello world'
@@ -20,11 +25,25 @@ describe FrostyMeadow do
 		end
 	end
 
+	describe "#generate_hex_name" do
+		it "should generate a string consisting of 3 strings seperated by dashes" do
+			FrostyMeadow.generate_hex_name.split('-').size.should eql 3
+		end
+
+		it "generates a dashed string where the last word is hexadecimal" do
+			FrostyMeadow.generate_hex_name.split('-').last.should =~ @hexadecimal_regex
+		end
+
+		it "generates a dashed string where the last word is 5 characters long" do
+			FrostyMeadow.generate_hex_name.split('-').last.length.should eql 5
+		end
+	end
+
 	describe "#hex_string" do
 		it "generates a 5 letter hexadecimal string by default" do
 			string = FrostyMeadow.hex_string
 
-			string.should =~ /^[0-9A-F]+$/i
+			string.should =~ @hexadecimal_regex
 			string.length.should eql 5
 		end
 
