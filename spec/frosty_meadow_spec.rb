@@ -3,21 +3,24 @@ require 'spec_helper'
 describe FrostyMeadow do
 
 	before :each do
-		@hexadecimal_regex = /^[0-9A-F]+$/i
+		@hexadecimal_regex  = /^[0-9A-F]+$/i
+		@hexadecimal_random = FrostyMeadow.generate_hex_name 
+		@hello_world_random = ["hello world", "world world", "world hello", "hello hello"]
+
+		@options = {:adjectives => ["hello"], :nouns => ["world"]}
 	end
 
 	describe "#generate" do
 		it "generates a random string" do
-			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"]).should eql 'hello world'
-			FrostyMeadow.generate(:adjectives => ["world"], :nouns => ["hello"]).should eql 'world hello'
+			@hello_world_random.should include FrostyMeadow.generate(:nouns => ["hello", "world"], :adjectives => ["hello","world"])
 		end
 
 		it "converts the generated string to an underscored version" do
-			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"], :separator => '_').should eql 'hello_world'
+			FrostyMeadow.generate(@options.merge({:separator => '_'})).should eql 'hello_world'
 		end
 
 		it "converts the generated string to a dashed version" do
-			FrostyMeadow.generate(:adjectives => ["hello"], :nouns => ["world"], :separator => '-').should eql 'hello-world'
+			FrostyMeadow.generate(@options.merge({:separator => '-'})).should eql 'hello-world'
 		end
 
 		it "generates a two word string" do
@@ -27,15 +30,15 @@ describe FrostyMeadow do
 
 	describe "#generate_hex_name" do
 		it "should generate a string consisting of 3 strings seperated by dashes" do
-			FrostyMeadow.generate_hex_name.split('-').size.should eql 3
+			@hexadecimal_random.split('-').size.should eql 3
 		end
 
 		it "generates a dashed string where the last word is hexadecimal" do
-			FrostyMeadow.generate_hex_name.split('-').last.should =~ @hexadecimal_regex
+			@hexadecimal_random.split('-').last.should =~ @hexadecimal_regex
 		end
 
 		it "generates a dashed string where the last word is 5 characters long" do
-			FrostyMeadow.generate_hex_name.split('-').last.length.should eql 5
+			@hexadecimal_random.split('-').last.length.should eql 5
 		end
 	end
 
