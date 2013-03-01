@@ -5,21 +5,22 @@ describe FrostyMeadow do
 	before :each do
 		@hexadecimal_regex  = /^[0-9A-F]+$/i
 		@hexadecimal_random = FrostyMeadow.generate_hex_name 
-		@options = {:adjectives => ["hello"], :nouns => "world"}
+		@hello_world_random = ["hello world", "world world", "world hello", "hello hello"]
+
+		@options = {:adjectives => ["hello"], :nouns => ["world"]}
 	end
 
 	describe "#generate" do
 		it "generates a random string" do
-			FrostyMeadow.generate(@options).should eql 'hello world'
-			FrostyMeadow.generate(:adjectives => ["world"], :nouns => ["hello"]).should eql 'world hello'
+			@hello_world_random.should include FrostyMeadow.generate(:nouns => ["hello", "world"], :adjectives => ["hello","world"])
 		end
 
 		it "converts the generated string to an underscored version" do
-			FrostyMeadow.generate(@options.merge{:separator => '_'}).should eql 'hello_world'
+			FrostyMeadow.generate(@options.merge({:separator => '_'})).should eql 'hello_world'
 		end
 
 		it "converts the generated string to a dashed version" do
-			FrostyMeadow.generate(@options.merge{:separator => '-'}).should eql 'hello-world'
+			FrostyMeadow.generate(@options.merge({:separator => '-'})).should eql 'hello-world'
 		end
 
 		it "generates a two word string" do
