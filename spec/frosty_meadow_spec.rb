@@ -42,19 +42,19 @@ describe FrostyMeadow do
 		end
 	end
 
-	describe "#hex_string" do
+	describe "#hex" do
 		it "generates a 5 letter hexadecimal string by default" do
-			string = FrostyMeadow.hex_string
+			string = FrostyMeadow::Hex.generate
 
 			string.should =~ @hexadecimal_regex
 			string.length.should eql 5
 		end
 
 		it "generates a hexadecimal string with the provided length" do
-			FrostyMeadow.hex_string(1).length.should eql 1
-			FrostyMeadow.hex_string(2).length.should eql 2
-			FrostyMeadow.hex_string(3).length.should eql 3
-			FrostyMeadow.hex_string(100).length.should eql 100 
+			FrostyMeadow::Hex.generate(1).length.should eql 1
+			FrostyMeadow::Hex.generate(2).length.should eql 2
+			FrostyMeadow::Hex.generate(3).length.should eql 3
+			FrostyMeadow::Hex.generate(100).length.should eql 100 
 		end
 	end
 

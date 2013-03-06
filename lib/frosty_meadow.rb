@@ -2,9 +2,9 @@ require 'json'
 
 module FrostyMeadow
 	module Version
-    	MAJOR = 1
-    	MINOR = 1
-    	PATCH  = 1
+    	MAJOR  = 2
+    	MINOR  = 0
+    	PATCH  = 0
 
     	FULL = [MAJOR, MINOR, PATCH].join('.')
 
@@ -13,6 +13,14 @@ module FrostyMeadow
     			FULL
     		end
     	end
+  	end
+
+  	module Hex
+		class << self
+			def generate length = 5
+				return ((0..length).map{rand(256).chr}*"").unpack("H*")[0][0,length]
+			end
+		end
   	end
 
   	class << self
@@ -48,10 +56,10 @@ module FrostyMeadow
 			return words
 		end
 
-		def generate_hex_name
+		def generate_hex_name 
 			generated_string = self.generate(:separator => '-')
 
-			return "#{generated_string}-#{self.hex_string}"
+			return "#{generated_string}-#{self::Hex.generate}"
 		end
 
 		def hex_string length=5
