@@ -57,4 +57,24 @@ describe FrostyMeadow do
 			FrostyMeadow.hex_string(100).length.should eql 100 
 		end
 	end
+
+	describe "#version" do
+		it "returns an integers for MAJOR, MINOR and PATCH" do
+			FrostyMeadow::Version::MAJOR.should be_a Fixnum
+			FrostyMeadow::Version::MINOR.should be_a Fixnum
+			FrostyMeadow::Version::PATCH.should be_a Fixnum
+		end
+
+		it "returns a full version number" do
+			FrostyMeadow::Version::FULL.split('.').size.should eql 3
+		end
+
+		it "allows for a to_s method" do
+			FrostyMeadow::Version.to_s.split('.').size.should eql 3
+		end
+
+		it "allows for a to_s method that is equal to the full version number" do
+			FrostyMeadow::Version.to_s.should eql FrostyMeadow::Version::FULL
+		end
+	end
 end

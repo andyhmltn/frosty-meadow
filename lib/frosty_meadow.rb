@@ -1,6 +1,20 @@
 require 'json'
 
-class FrostyMeadow
+module FrostyMeadow
+	module Version
+    	MAJOR = 1
+    	MINOR = 1
+    	PATCH  = 0
+
+    	FULL = [MAJOR, MINOR, PATCH].join('.')
+
+    	class << self
+    		def to_s
+    			FULL
+    		end
+    	end
+  	end
+
 	def self.generate params = {}
 		words = get_words params
 
