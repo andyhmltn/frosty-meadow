@@ -3,7 +3,7 @@ require 'json'
 module FrostyMeadow
 	module Version
     	MAJOR  = 2
-    	MINOR  = 0
+    	MINOR  = 1
     	PATCH  = 0
 
     	FULL = [MAJOR, MINOR, PATCH].join('.')
@@ -24,6 +24,8 @@ module FrostyMeadow
   	end
 
   	class << self
+  		@@words = []
+
 		def generate params = {}
 			words = get_words params
 
@@ -40,15 +42,21 @@ module FrostyMeadow
 		end
 
 		def get_words params = {}
-			file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
-			file = File.new file_path, "r"
 
-			file_contents = ""
-			while line = file.gets
-				file_contents << line
+			if @@words.empty?
+				file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
+				file = File.new file_path, "r"
+
+				file_contents = ""
+				while line = file.gets
+					file_contents << line
+				end
+
+				words 	= JSON.parse(file_contents)
+				@@words = words
+			else
+				words = @@words
 			end
-
-			words = JSON.parse(file_contents)
 
 			words['adjectives'] = params[:adjectives] unless params[:adjectives].nil?
 			words['nouns'] = params[:nouns] unless params[:nouns].nil?
