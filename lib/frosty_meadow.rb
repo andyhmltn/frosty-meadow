@@ -43,7 +43,7 @@ module FrostyMeadow
 
 		def get_words params = {}
 
-			if @@words.empty?
+			if @@words.empty? || !params[:skip_cache].nil?
 				file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
 				file = File.new file_path, "r"
 

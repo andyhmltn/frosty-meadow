@@ -31,6 +31,10 @@ You can generate a hex string like the example above (41aa3 in this case) by usi
 	FrostyMeadow::Hex.generate 	   #=> fa391
 	FrostyMeadow::Hex.generate(25) #=> 7c145ff861ad26a55e3ad83c1
 
+Caching
+---------------
+There is a very basic caching method in place now that will stop `FrostyMeadow` reading from `data/words.json` every single time. If for whatever reason you need to skip the check for this cache and reload the file, you can pass `:skip_cache` as true into the params for `.generate`
+
 Pull requests
 ---------------
 Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`
