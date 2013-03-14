@@ -25,6 +25,7 @@ module FrostyMeadow
 
   	class << self
   		@@words = []
+  		@@cached_path = ''
 
 		def generate params = {}
 			words = get_words params
@@ -43,8 +44,13 @@ module FrostyMeadow
 
 		def get_words params = {}
 
-			if @@words.empty? || !params[:skip_cache].nil?
-				file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
+			if @@words.empty? || !params[:skip_cache].nil? || params[:from_file] != @@cached_path
+				if params[:from_file].nil?
+					file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
+				else
+					file_path = params[:from_file]
+				end
+
 				file = File.new file_path, "r"
 
 				file_contents = ""
@@ -53,7 +59,9 @@ module FrostyMeadow
 				end
 
 				words 	= JSON.parse(file_contents)
-				@@words = words
+
+				@@words 	  = words
+				@@cached_path = file_path
 			else
 				words = @@words
 			end

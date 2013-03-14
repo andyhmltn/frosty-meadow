@@ -8,6 +8,10 @@ describe FrostyMeadow do
 		@hello_world_random = ["hello world", "world world", "world hello", "hello hello"]
 
 		@options = {:adjectives => ["hello"], :nouns => ["world"]}
+
+		@app_root = File.expand_path(File.dirname(__FILE__))
+
+		Dir.chdir @app_root
 	end
 
 	describe "#generate" do
@@ -55,6 +59,12 @@ describe FrostyMeadow do
 			FrostyMeadow::Hex.generate(2).length.should eql 2
 			FrostyMeadow::Hex.generate(3).length.should eql 3
 			FrostyMeadow::Hex.generate(100).length.should eql 100 
+		end
+	end
+
+	describe "#from_file" do
+		it "loads custom words from an external file" do
+			['external file'].should include FrostyMeadow.generate(:from_file => "data/words.json")
 		end
 	end
 
