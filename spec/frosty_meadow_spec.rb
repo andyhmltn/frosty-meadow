@@ -64,7 +64,18 @@ describe FrostyMeadow do
 
 	describe "#from_file" do
 		it "loads custom words from an external file" do
-			['external file'].should include FrostyMeadow.generate(:from_file => "data/words.json")
+			FrostyMeadow.generate(:from_file => "data/words.json").should eql 'external file'
+		end
+
+
+		it "generates a hex string using a custom word list" do
+			generated_hex = FrostyMeadow.generate_hex_name(:from_file => "data/words.json")
+
+			split_by_dash = generated_hex.split('-')
+			actual_string = [split_by_dash[0], split_by_dash[1]].join('-')
+
+			actual_string.should eql 'external-file'
+			split_by_dash[2].should =~ @hexadecimal_regex
 		end
 	end
 

@@ -72,8 +72,8 @@ module FrostyMeadow
 			return words
 		end
 
-		def generate_hex_name 
-			generated_string = self.generate(:separator => '-')
+		def generate_hex_name params = {}
+			generated_string = self.generate({:separator => '-'}.merge(params))
 
 			return "#{generated_string}-#{self::Hex.generate}"
 		end

@@ -55,7 +55,7 @@ Using the parameters to use a custom word list may be fine for small or dynamic 
 For example, presuming the above JSON was in a file called something like `data/my_custom_word_list.json` the following would work:
 
 	FrostyMeadow.generate(:from_file => 'data/my_custom_word_list.json') #=> amazing world
-
+	FrostyMeadow.generate_hex_name(:from_file => 'data/my_custom_word_list.json') #=> awesome-globe-57c6d5
 
 Pull requests
 ---------------
