@@ -35,6 +35,28 @@ Caching
 ---------------
 There is a very basic caching method in place now that will stop `FrostyMeadow` reading from `data/words.json` every single time. If for whatever reason you need to skip the check for this cache and reload the file, you can pass `:skip_cache` as true into the params for `.generate`
 
+Loading Words From External Files
+----------------
+Using the parameters to use a custom word list may be fine for small or dynamic purposes, but sometimes you may need to load from an external file. To do so, just pass `:from_file` as a parameter with the path of a valid JSON file in the following format:
+	
+	{
+	   "adjectives":[
+	      "beautiful",
+	      "amazing",
+	      "awesome"
+	   ],
+	   "nouns":[
+	      "world",
+	      "earth",
+	      "globe"
+	   ]
+	}
+
+For example, presuming the above JSON was in a file called something like `data/my_custom_word_list.json` the following would work:
+
+	FrostyMeadow.generate(:from_file => 'data/my_custom_word_list.json') #=> amazing world
+
+
 Pull requests
 ---------------
 Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`
