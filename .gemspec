@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = "This gem will generate a random name for your server, much in the way Heroku does."
   s.authors     = ["Andy Hamilton"]
   s.email       = 'andyhmltn@gmail.com'
-  s.files       = ["lib/frosty_meadow.rb", "lib/data/words.json"]
+  s.files       = ["lib/frosty_meadow.rb", "lib/data/words.json", "lib/data/metal.json"]
   s.homepage    = 'https://github.com/andyhmltn/frosty-meadow'
   s.license     = 'MIT'
 end
