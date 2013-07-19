@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.email       = 'andyhmltn@gmail.com'
   s.files       = ["lib/frosty_meadow.rb", "lib/data/words.json"]
   s.homepage    = 'https://github.com/andyhmltn/frosty-meadow'
+  s.license     = 'MIT'
 end
