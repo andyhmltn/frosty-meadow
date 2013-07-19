@@ -6,6 +6,17 @@ What is this?
 ----------------
 This gem will generate a random name for your server, much in the way Heroku does.
 
+Installation
+----------------
+To install the gem, run the command:
+	gem install frosty_meadow
+
+Alternatively you can add the following to your `Gemfile`:
+
+	gem "frosty_meadow"
+
+and then run `bundle install`
+
 How do I use it?
 ----------------
 It's simple really!
