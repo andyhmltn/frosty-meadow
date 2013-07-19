@@ -68,7 +68,7 @@ Contributors
 
 Pull requests
 ---------------
-Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`
+Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`. If you end up submitting a request, please increment the gem version by editing the 'VERSION' module in `lib/frosty_meadow.rb`
 
 Credits
 ---------------
