@@ -46,7 +46,9 @@ module FrostyMeadow
 
 			if @@words.empty? || !params[:skip_cache].nil? || params[:from_file] != @@cached_path
 				if params[:from_file].nil?
-					file_path =  File.join(File.dirname(__FILE__), 'data/words.json')
+          dictionary_file = params[:metal_mode] ? 'data/metal.json' : 'data/words.json'
+          
+					file_path =  File.join(File.dirname(__FILE__), dictionary_file)
 				else
 					file_path = params[:from_file]
 				end

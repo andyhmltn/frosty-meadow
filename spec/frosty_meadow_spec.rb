@@ -31,6 +31,12 @@ describe FrostyMeadow do
 			FrostyMeadow.generate.split.size.should eql 2
 		end
 	end
+  
+  describe "#metal_mode" do
+    it "should generation a string using the metal dictionary file" do
+      FrostyMeadow.generate(:metal_mode => true).split.size.should eql 2
+    end
+  end
 
 	describe "#generate_hex_name" do
 		it "should generate a string consisting of 3 strings seperated by dashes" do
@@ -66,8 +72,7 @@ describe FrostyMeadow do
 		it "loads custom words from an external file" do
 			FrostyMeadow.generate(:from_file => "data/words.json").should eql 'external file'
 		end
-
-
+    
 		it "generates a hex string using a custom word list" do
 			generated_hex = FrostyMeadow.generate_hex_name(:from_file => "data/words.json")
 
