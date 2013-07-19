@@ -18,6 +18,10 @@ You can specify a custom separator easily:
 
 	FrostyMeadow.generate(:separator => '-') #=> frosty-meadow
 
+You can use "Metal Mode" which uses awesome new words! (Kvlt as heck!)
+
+    FrostyMeadow.generate(:metal_mode => true, :separator => '-') #=> unholy-darkness
+    
 Custom adjectives/nouns may also be used:
 
 	FrostyMeadow.generate(:adjectives => ["beautiful", "amazing", "awesome"], :nouns => ["world", "earth", "globe"]) #=> amazing world
