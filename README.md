@@ -61,6 +61,11 @@ For example, presuming the above JSON was in a file called something like `data/
 	FrostyMeadow.generate(:from_file => 'data/my_custom_word_list.json') #=> amazing world
 	FrostyMeadow.generate_hex_name(:from_file => 'data/my_custom_word_list.json') #=> awesome-globe-57c6d5
 
+Contributors
+---------------
+	* Andy Hamilton (@andyhmltn) (Repo Owner)
+	* Scott Simms (@scottmsims) (#12)
+
 Pull requests
 ---------------
 Pull requests are more than welcome. To test, just use rspec: `bundle exec rspec`
